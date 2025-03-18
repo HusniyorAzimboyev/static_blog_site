@@ -565,3 +565,178 @@ h1, h2 {
         flex: 0 1 100%;  /* Take full width on mobile */
     }
 }
+
+.contact-section {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 2rem;
+    background: linear-gradient(
+        135deg,
+        rgba(24, 24, 24, 0.97) 0%,
+        rgba(32, 32, 32, 0.95) 50%,
+        rgba(48, 48, 48, 0.93) 100%
+    );
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.contact-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-text {
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: rgba(15, 15, 15, 0.9);
+    transition: all 0.3s ease;
+    min-width: 150px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact-link i {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-link span {
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Platform-specific styles */
+.contact-link[href*="mailto"] i { color: #EA4335; }
+.contact-link[href*="telegram"]  i { color: #0088cc; }
+.contact-link[href*="github"] i { color: #6e5494; }
+.contact-link[href*="linkedin"] i { color: #0077b5; }
+
+#telegram_link i{
+    color: #0088cc;
+}
+#telegram_link i:hover,#telegram_link:hover{
+    color: white;
+    background-color: #0077b5;
+}
+
+
+.contact-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.contact-link[href*="mailto"]::before { background: linear-gradient(135deg, #EA4335, #DB4437); }
+.contact-link[href*="telegram"]::before { background: linear-gradient(135deg, #0088cc, #29B6F6); }
+.contact-link[href*="github"]::before { background: linear-gradient(135deg, #6e5494, #7a5fa7); }
+.contact-link[href*="linkedin"]::before { background: linear-gradient(135deg, #0077b5, #00A0DC); }
+
+/* Hover effects */
+.contact-link:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-link:hover::before {
+    opacity: 1;
+}
+
+.contact-link:hover i,
+.contact-link:hover span {
+    color: white;
+}
+
+.site-footer {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    padding: 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-left h3 {
+    margin-bottom: 0.5rem;
+    color: #4ecdc4;
+}
+
+.footer-left p {
+    color: #888888;
+}
+
+.footer-right p {
+    color: #666666;
+}
+
+@media (max-width: 768px) {
+    .contact-link {
+        min-width: 120px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-left, .footer-right {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
